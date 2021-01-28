@@ -14,7 +14,7 @@ authorization="SharedKey"
 
 HTTP_METHOD="PUT"
 request_date=$(TZ=GMT date "+%a, %d %h %Y %H:%M:%S %Z")
-storage_service_version="2015-02-21"
+storage_service_version="2016-05-31"
 
 # HTTP Request headers
 x_ms_date_h="x-ms-date:$request_date"
