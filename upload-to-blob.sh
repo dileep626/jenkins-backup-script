@@ -20,7 +20,7 @@ storage_service_version="2016-05-31"
 x_ms_date_h="x-ms-date:$request_date"
 x_ms_version_h="x-ms-version:$storage_service_version"
 x_ms_blob_type_h="x-ms-blob-type:BlockBlob"
-x_ms_content_length="x-ms-content-length:1000000000"
+x_ms_content_length="x-ms-blob-content-length:1000000000"
 
 FILE_LENGTH=$(wc --bytes < ${FILENAME})
 FILE_TYPE=$(file --mime-type -b ${FILENAME})
