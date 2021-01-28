@@ -63,6 +63,7 @@ curl -X ${HTTP_METHOD} \
     -H "$x_ms_version_h" \
     -H "$x_ms_blob_type_h" \
     -H "$authorization_header" \
+    -H "Content-Length: 1000000000" \
     -H "Content-Type: ${FILE_TYPE}" \
     ${OUTPUT_FILE}
 
