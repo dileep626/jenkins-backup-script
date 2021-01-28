@@ -20,14 +20,13 @@ storage_service_version="2016-05-31"
 x_ms_date_h="x-ms-date:$request_date"
 x_ms_version_h="x-ms-version:$storage_service_version"
 x_ms_blob_type_h="x-ms-blob-type:BlockBlob"
-x_ms_content_length="Content-Length:1000000000"
 
 FILE_LENGTH=$(wc --bytes < ${FILENAME})
 FILE_TYPE=$(file --mime-type -b ${FILENAME})
 FILE_MD5=$(md5sum -b ${FILENAME} | awk '{ print $1 }')
 
 # Build the signature string
-canonicalized_headers="${x_ms_blob_type_h}\n${x_ms_date_h}\n${x_ms_version_h}\n${x_ms_content_length}"
+canonicalized_headers="${x_ms_blob_type_h}\n${x_ms_date_h}\n${x_ms_version_h}"
 canonicalized_resource="/${AZURE_STORAGE_ACCOUNT}/${AZURE_CONTAINER_NAME}/${FILE_MD5}"
 
 #######
@@ -64,7 +63,6 @@ curl -X ${HTTP_METHOD} \
     -H "$x_ms_version_h" \
     -H "$x_ms_blob_type_h" \
     -H "$authorization_header" \
-    -H "$x_ms_content_length" \
     -H "Content-Type: ${FILE_TYPE}" \
     ${OUTPUT_FILE}
 
