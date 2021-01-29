@@ -22,7 +22,7 @@ x_ms_version_h="x-ms-version:$storage_service_version"
 x_ms_blob_type_h="x-ms-blob-type:BlockBlob"
 
 FILE_LENGTH=$(wc --bytes < ${FILENAME})
-FILE_TYPE=$(file --mime-type -b ${FILENAME})
+FILE_TYPE="application/x-gzip"
 FILE_MD5=$(md5sum -b ${FILENAME} | awk '{ print $1 }')
 
 # Build the signature string
